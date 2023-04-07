@@ -1,13 +1,218 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple: hsl(259, 100%, 65%);
+	--Light-red: hsl(0, 100%, 67%);
+	--gray: hsl(0, 0%, 86%);
+
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+  }
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('./assets/fonts/Poppins-Italic.ttf');
+	font-weight: 400;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+	font-family: 'Poppins';
+	src: url('./assets/fonts/Poppins-Bold.ttf');
+	font-weight: 700;
 }
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('./assets/fonts/Poppins-ExtraBoldItalic.ttf');
+	font-weight: 800;
+}
+
+body {
+  background: var(--Light-grey);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  border-radius: 2rem 2rem 10rem 2rem;
+}
+
+.age-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.age-form-input {
+  max-width: 30rem;
+  color: var(--Smokey-grey);
+  display: flex;
+  gap: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.age-form-input input {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 5vw, 1.6rem);
+  width: 100%;
+}
+
+.age-form-input span:first-child {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.age-form-input input:focus {
+  outline: none;
+  border: 1px solid var(--purple);
+}
+
+.ageSubmitImage {
+  padding: 1.2rem;
+  background: var(--purple);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+  outline: 2px solid var(--purple);
+  outline-offset: -2px;
+}
+
+.submit {
+  margin-top: 1rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit::after {
+  content: '';
+  width: 100%;
+  background: var(--gray);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 1px;
+  right: 0;
+}
+
+.ageSubmitImage:hover::after {
+  scale: 0.95;
+}
+
+.ageSubmitImage:hover {
+  background: var(--Off-black);
+  outline: 2px solid var(--Off-black);
+  outline-offset: 3px;
+  scale: 1.05;
+}
+
+.input--error {
+  color: var(--Light-red);
+}
+
+.input--error input {
+  border: 1px solid var(--Light-red);
+  position: relative;
+  z-index: 10;
+}
+
+.age-form-input label {
+  position: relative;
+}
+
+.error-info {
+  margin: 10px 0 0 0;
+  font-size: 11px;
+  font-weight: 400;
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+  bottom: -1.3rem;
+  z-index: 5;
+  position: absolute;
+}
+
+.age-result {
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 6px;
+}
+
+.age-form-input span {
+  font-size: 11px;
+  display: block;
+}
+
+.purple_text {
+  color: var(--purple);
+}
+
+.hidden {
+  display: none;
+}
+
+.info--hidden {
+  bottom: 0;
+  opacity: 0;
+}
+
+.shake {
+  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+	10%,
+	90% {
+		transform: translate3d(-1px, 0, 0);
+		background: var(--Red);
+	}
+
+	20%,
+	80% {
+		transform: translate3d(2px, 0, 0);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: translate3d(-4px, 0, 0);
+	}
+
+	40%,
+	60% {
+		transform: translate3d(4px, 0, 0);
+	}
+}
+
+
+
+.footer p {
+  margin: 0;
+  position: absolute;
+  bottom: 6px;
+  right: 2.5rem;
+  width: max-content;
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.info-hidden {
+  opacity: 0 !important;
+  right: -1rem !important;
+  pointer-events: none;
+}
+
