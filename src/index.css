@@ -121,14 +121,14 @@ input[type='number'] {
 }
 
 .ageSubmitImage:hover::after {
-  scale: 0.95;
+  scale: 0.90;
 }
 
 .ageSubmitImage:hover {
-  background: var(--Off-black);
-  outline: 2px solid var(--Off-black);
+  background: var(--purple);
+  outline: 2px solid var(--purple);
   outline-offset: 3px;
-  scale: 1.05;
+  scale: 1.1;
 }
 
 .input--error {
