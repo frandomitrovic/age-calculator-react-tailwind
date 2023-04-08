@@ -16,24 +16,24 @@ export default function AgeCalculator() {
 
     function checkErrors ({ day, month, year }) {
         // is date valid
-        if (day === '') handleError('day', 'Day is required')
+        if (day === null) handleError('day', 'This field is required')
         else {
             const daysInMonth = new Date(year, month, 0).getDate() || 31
             if (day > daysInMonth) handleError('day', `There are only ${daysInMonth} days`)
             else if (day < 1) {
                 handleError('day', 'Must be a valid day')
-                console.log('Error')
-            } else handleError('day', '', 'remove')
+            } 
+            else handleError('day', '', 'remove')
         }
 
-        if (month === '') handleError('month', 'Month is required')
+        if (month === '') handleError('month', 'This field is required')
         else {
             if (month > 12) handleError('month', 'There are only 12 months in a year')
             else if (month < 1) handleError('month', 'Must be a valid month')
             else handleError('month', '', 'remove')
         }
 
-        if (year === '') handleError('year', 'Year is required')
+        if (year === '') handleError('year', 'This field is required')
         else {
             if (year > new Date().getFullYear()) handleError('year', 'Must be in the past')
             else if (year < 100) handleError('year', 'Must be more than 100')
